@@ -2,7 +2,7 @@ Summary:	A Java compiler written in C++ for high performance
 Summary(de):	Java-JVM-Compiler in C++
 Summary(es):	Compilador java -> JVM escrito en C++ para optimizar desempeño
 Summary(fr):	Compilateur Java -> JVM ecrit en C++ pour de grandes performances
-Summary(pl):	Kompiler Javy napisany w C++
+Summary(pl):	Kompilator Javy napisany w C++
 Summary(pt_BR): Compilador java -> JVM escrito em C++ para otimizar performance
 Summary(tr):	Java derleyicisi
 Name:		guavac
@@ -63,7 +63,7 @@ ile yazýlmýþtýr.
 %patch -p1
 
 %build
-CFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS} -fno-exceptions"
+CFLAGS="%{rpmcflags} -fno-exceptions"
 %configure
 %{__make}
 
