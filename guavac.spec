@@ -7,7 +7,7 @@ Summary(pt_BR):	Compilador java -> JVM escrito em C++ para otimizar performance
 Summary(tr):	Java derleyicisi
 Name:		guavac
 Version:	1.2
-Release:	5
+Release:	6
 License:	GPL
 Group:		Development/Languages
 Source0:	ftp://ftp.yggdrasil.com/pub/dist/devel/compilers/guavac/%{name}-%{version}.tar.gz
@@ -62,7 +62,7 @@ ile yazýlmýþtýr.
 
 %build
 CFLAGS="%{rpmcflags} -fno-exceptions"
-%configure
+%configure2_13
 %{__make}
 
 %clean
