@@ -11,6 +11,7 @@ Release:	6
 License:	GPL
 Group:		Development/Languages
 Source0:	ftp://ftp.yggdrasil.com/pub/dist/devel/compilers/guavac/%{name}-%{version}.tar.gz
+# Source0-md5:	06b7391584fc6b22db7f16fc0a2f9b3e
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://HTTP.CS.Berkeley.EDU/~engberg/guavac/
 BuildRequires:	libstdc++-devel
