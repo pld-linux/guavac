@@ -7,7 +7,7 @@ Group:		Development/Languages
 Source:		ftp://ftp.yggdrasil.com/pub/dist/devel/compilers/guavac/guavac-1.2.tar.gz
 Patch:		guavac-DESTDIR.patch
 Url:		http://HTTP.CS.Berkeley.EDU/~engberg/guavac/
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The guavac package includes guavac and guavad. Guavac is a
