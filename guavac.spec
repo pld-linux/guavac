@@ -1,12 +1,13 @@
-Name: guavac
-Version: 1.2
-Release: 4
-Copyright: GPL
-Source: ftp://ftp.yggdrasil.com/pub/dist/devel/compilers/guavac/guavac-1.2.tar.gz
-Url: http://HTTP.CS.Berkeley.EDU/~engberg/guavac/
-Group: Development/Languages
-Summary: A Java compiler written in C++ for high performance.
-Buildroot: /var/tmp/guavac-root
+Summary:	A Java compiler written in C++ for high performance.
+Name:		guavac
+Version:	1.2
+Release:	4
+Copyright:	GPL
+Group:		Development/Languages
+Source:		ftp://ftp.yggdrasil.com/pub/dist/devel/compilers/guavac/guavac-1.2.tar.gz
+Patch:		guavac-DESTDIR.patch
+Url:		http://HTTP.CS.Berkeley.EDU/~engberg/guavac/
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 The guavac package includes guavac and guavad. Guavac is a
@@ -18,25 +19,27 @@ compiler. Guavad is guavac's disassembler.
 Install guavac if you need a Java compiler on your system.
 
 %prep
-%setup 
+%setup -q
+%patch -p1
 
 %build
-%ifarch alpha
-CCC=egcs CFLAGS=" " ./configure --prefix=/usr 
-%else
-CCC=egcs CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=/usr
-%endif
-make CCC=egcs
+%configure
+make
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install prefix=$RPM_BUILD_ROOT/usr
-strip $RPM_BUILD_ROOT/usr/bin/guav* || :
+
+make install DESTDIR=$RPM_BUILD_ROOT
+
+strip --strip-unneeded $RPM_BUILD_ROOT%{_bindir}/guav* || :
+
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/*
 
 %files
-/usr/bin/guav*
-/usr/man/man*/*
-/usr/share/guavac
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/guav*
+%{_datadir}/guavac
+%{_mandir}/man*/*
