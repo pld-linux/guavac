@@ -33,7 +33,7 @@ guavac je¶li potzrebuje siê kompilatora Javy.
 
 %build
 %configure
-make
+%{__make}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
