@@ -46,7 +46,7 @@ Pakiet guavac zawiera guavac i guavad. Guavac jest samodzielnym
 kompilatorem Javy; zosta³ w ca³o¶ci napisany w C++ i powinien daæ siê
 skompilowaæ na ka¿dej platformie, na której dzia³a GNU C++ (ggc) lub
 podobny kompilator. Guavad to deasembler guavac. Nale¿y zainstalowaæ
-guavac je¶li potzrebuje siê kompilatora Javy.
+guavac je¶li potrzebuje siê kompilatora Javy.
 
 %description -l pt_BR
 Guavac é um compilador para a linguagem de programação Java. Ele foi
