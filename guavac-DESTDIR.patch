@@ -1,0 +1,82 @@
+diff -ur guavac-1.2.orig/Makefile.in guavac-1.2/Makefile.in
+--- guavac-1.2.orig/Makefile.in	Sat May 23 20:51:57 1998
++++ guavac-1.2/Makefile.in	Sun Oct 31 18:41:22 1999
+@@ -69,10 +69,10 @@
+ 	  echo making $@ in $$subdir; \
+ 	  (cd $$subdir && $(MAKE) $(MDEFINES) $@) || exit 1; \
+ 	done
+-	$(srcdir)/mkinstalldirs ${datadir}
+-	$(srcdir)/mkinstalldirs ${datasubdir}
+-	rm -rf $(datasubdir)/classes.zip
+-	$(INSTALL_DATA) $(srcdir)/classes.zip $(datasubdir)/classes.zip
++	$(srcdir)/mkinstalldirs $(DESTDIR)${datadir}
++	$(srcdir)/mkinstalldirs $(DESTDIR)${datasubdir}
++	rm -rf $(DESTDIR)$(datasubdir)/classes.zip
++	$(INSTALL_DATA) $(srcdir)/classes.zip $(DESTDIR)$(datasubdir)/classes.zip
+ 
+ uninstall:
+ 	for subdir in $(SUBDIRS); do \
+diff -ur guavac-1.2.orig/checks/Makefile.in guavac-1.2/checks/Makefile.in
+--- guavac-1.2.orig/checks/Makefile.in	Sat Mar  8 18:27:49 1997
++++ guavac-1.2/checks/Makefile.in	Sun Oct 31 18:41:41 1999
+@@ -37,9 +37,9 @@
+ all:
+ 
+ install:
+-	$(srcdir)/../mkinstalldirs $(bindir)
++	$(srcdir)/../mkinstalldirs $(DESTDIR)$(bindir)
+ 	cd $(srcdir) && for file in gcok; do \
+-	  $(INSTALL_PROGRAM) $$file $(bindir)/$$file; \
++	  $(INSTALL_PROGRAM) $$file $(DESTDIR)$(bindir)/$$file; \
+ 	done
+ 
+ uninstall:
+diff -ur guavac-1.2.orig/compiler/Makefile.in guavac-1.2/compiler/Makefile.in
+--- guavac-1.2.orig/compiler/Makefile.in	Sat May 23 20:52:22 1998
++++ guavac-1.2/compiler/Makefile.in	Sun Oct 31 18:42:27 1999
+@@ -131,9 +131,9 @@
+ 	${CCC} ${CFLAGS} FilterMain.o ${COMPILELIBS} -o classfilter
+ 
+ install: all
+-	$(srcdir)/../mkinstalldirs ${bindir}
+-	$(INSTALL_PROGRAM) guavac ${bindir}
+-	$(INSTALL_PROGRAM) guavad ${bindir}
++	$(srcdir)/../mkinstalldirs $(DESTDIR)${bindir}
++	$(INSTALL_PROGRAM) guavac $(DESTDIR)${bindir}
++	$(INSTALL_PROGRAM) guavad $(DESTDIR)${bindir}
+ 
+ uninstall:
+ 	rm -f ${bindir}/guavac
+diff -ur guavac-1.2.orig/doc/Makefile.in guavac-1.2/doc/Makefile.in
+--- guavac-1.2.orig/doc/Makefile.in	Thu Mar  6 06:36:44 1997
++++ guavac-1.2/doc/Makefile.in	Sun Oct 31 18:42:50 1999
+@@ -60,9 +60,9 @@
+ 	date > $@
+ 
+ install: all
+-	$(srcdir)/../mkinstalldirs $(infodir)
++	$(srcdir)/../mkinstalldirs $(DESTDIR)$(infodir)
+ 	cd $(srcdir) && for file in $(PRODUCT).info*; do \
+-	  $(INSTALL_DATA) $$file $(infodir)/$$file; \
++	  $(INSTALL_DATA) $$file $(DESTDIR)$(infodir)/$$file; \
+ 	done
+ 
+ uninstall:
+diff -ur guavac-1.2.orig/man/Makefile.in guavac-1.2/man/Makefile.in
+--- guavac-1.2.orig/man/Makefile.in	Mon Mar  3 19:21:07 1997
++++ guavac-1.2/man/Makefile.in	Sun Oct 31 18:43:30 1999
+@@ -51,12 +51,9 @@
+ 	date > $<
+ 
+ install: all
+-	$(srcdir)/../mkinstalldirs $(mandir) $(mandir)/man1 $(mandir)/cat1
++	$(srcdir)/../mkinstalldirs $(DESTDIR)$(mandir) $(DESTDIR)$(mandir)/man1
+ 	cd $(srcdir) && for file in $(PRODUCT).1; do \
+-	  $(INSTALL_DATA) $$file $(mandir)/man1/$$file; \
+-	done
+-	cd $(srcdir) && for file in $(PRODUCT).man; do \
+-	  $(INSTALL_DATA) $$file $(mandir)/cat1/$$file; \
++	  $(INSTALL_DATA) $$file $(DESTDIR)$(mandir)/man1/$$file; \
+ 	done
+ 
+ uninstall:
