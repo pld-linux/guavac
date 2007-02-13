@@ -1,10 +1,10 @@
 Summary:	A Java compiler written in C++ for high performance
-Summary(de.UTF-8):   Java-JVM-Compiler in C++
-Summary(es.UTF-8):   Compilador java -> JVM escrito en C++ para optimizar desempeño
-Summary(fr.UTF-8):   Compilateur Java -> JVM ecrit en C++ pour de grandes performances
-Summary(pl.UTF-8):   Kompilator Javy napisany w C++
-Summary(pt_BR.UTF-8):   Compilador java -> JVM escrito em C++ para otimizar performance
-Summary(tr.UTF-8):   Java derleyicisi
+Summary(de.UTF-8):	Java-JVM-Compiler in C++
+Summary(es.UTF-8):	Compilador java -> JVM escrito en C++ para optimizar desempeño
+Summary(fr.UTF-8):	Compilateur Java -> JVM ecrit en C++ pour de grandes performances
+Summary(pl.UTF-8):	Kompilator Javy napisany w C++
+Summary(pt_BR.UTF-8):	Compilador java -> JVM escrito em C++ para otimizar performance
+Summary(tr.UTF-8):	Java derleyicisi
 Name:		guavac
 Version:	1.2
 Release:	6
