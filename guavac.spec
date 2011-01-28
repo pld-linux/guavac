@@ -66,14 +66,14 @@ CFLAGS="%{rpmcflags} -fno-exceptions"
 %configure2_13
 %{__make}
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
